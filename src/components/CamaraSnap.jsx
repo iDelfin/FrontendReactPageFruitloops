@@ -41,7 +41,14 @@ const CamaraSnap = () => {
         let ctx = photo.getContext('2d');
         ctx.drawImage(video, 0, 0, width, height);
         localStorage.setItem('recent-image', video)
+        let thisPhoto = photo.toDataURL("image/jpeg", 1.0)
+        console.log(thisPhoto)
+        //setSelectedFile(photo.toBlob((blob) => {}, "image/jpeg", 1.0))
         //setUrl(localStorage.getItem('recent-image'))
+        let link = document.createElement('a')
+        link.download = 'yourIMG.jpeg';
+        link.href = thisPhoto;
+        link.click();
         setHasPhoto(true);
     }
     
