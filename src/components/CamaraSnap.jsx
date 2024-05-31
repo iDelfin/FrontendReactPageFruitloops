@@ -18,10 +18,10 @@ const CamaraSnap = () => {
 
     const getVideo = () => {
         navigator.mediaDevices.getUserMedia({ video: { width:224, height: 224 } })
-        .then(stream => {
+        .then(async stream => {
             let video = videoRef.current;
             video.srcObject = stream;
-            video.play();
+            await video.play()
         })
         .catch(err => {
             console.error(err);
